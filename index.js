@@ -24,13 +24,13 @@ app.listen(8080, () => {
 
 app.get('/', async (req, res) => {
     const pokemons = await Pokemon.find();
-    res.render('template/Pokemon/listPokemon.html.twig', {
+    res.render('template/pokemon/listPokemon.html.twig', {
         pokemons: pokemons
     })
 })
 
 app.get('/addPokemon', async (req, res) => {
-    res.render('template/Pokemon/addPokemon.html.twig', {
+    res.render('template/pokemon/addPokemon.html.twig', {
         method: "post",
         action: "/addPokemon"
 
@@ -50,7 +50,7 @@ app.post('/addPokemon', async (req, res) => {
 
 app.get('/updatePokemon/:id', async (req, res) => {
     const pokemon = await Pokemon.findOne({ _id: req.params.id })
-    res.render('template/Pokemon/addPokemon.html.twig', {
+    res.render('template/pokemon/addPokemon.html.twig', {
         action: "/updatePokemon",
         pokemon: pokemon
     })
